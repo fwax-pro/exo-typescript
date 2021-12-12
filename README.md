@@ -1,1 +1,1 @@
-# exo-typescript
+# exos-typescript
