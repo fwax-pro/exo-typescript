@@ -1,9 +1,10 @@
-import { closest, raceHorse, sentenceChangeKeyword, stringToASCIIAverageValue, stringToNumberTotalCount } from "./helper";
+import { closest, raceHorse, sentenceChangeKeyword, stringToASCIIAverageValue, stringToNumberTotalCount, stringToTotalCountOddAndEven } from "./helper";
 import { temperatures, temperature, diff } from "./datas/temperatures";
 import { strings } from "./datas/strings";
 import { stringToNumberTotalCounts } from "./datas/stringToNumberTotalCounts";
 import { stringWithKeyword } from "./datas/stringWithKeyword";
 import { horses } from "./datas/horses";
+import { number1 } from "./datas/numbers";
 
 describe.each(temperatures)('temperature', ({inputs, description, expected}) => {
     test(description, () => {
@@ -36,6 +37,13 @@ describe.each(stringWithKeyword)("Sentence + Keyword => Sentence + KEYWORD", ({i
 describe.each(horses)("Race Horses", ({inputs, description, expected}) => {
     test(description, () => {
         const result = raceHorse(inputs);
+        expect(result).toBe(expected);
+    })
+})
+
+describe.each(number1)("Input String => TotalOdd TotalEven", ({input, description, expected}) => {
+    test(description, () => {
+        const result = stringToTotalCountOddAndEven(input);
         expect(result).toBe(expected);
     })
 })

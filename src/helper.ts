@@ -65,3 +65,19 @@ export function raceHorse(inputs: string[]) {
 
     return differences.sort((a,b) => a - b)[0];
 }
+
+export function stringToTotalCountOddAndEven(input: string):string {
+    const inputString = input.split(',');
+    let e = 0;
+    let o = 0;
+
+    for(let i = 0; i < inputString.length; i++) {
+        const input = parseInt(inputString[i]);
+        if(input%2 === 0) {
+            e += input;
+        } else {
+            o += input;
+        }
+    }
+    return `${o} ${e}`;
+}
