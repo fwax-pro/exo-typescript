@@ -81,3 +81,24 @@ export function stringToTotalCountOddAndEven(input: string):string {
     }
     return `${o} ${e}`;
 }
+
+export function binarySearch(inputs: number[], search:number): number {
+    const index = Math.ceil(inputs.length/2) -1;
+    const position = inputs[index];
+
+    if(position === search) {
+        return position
+    } else {
+        if(position > search) {
+            inputs.splice(inputs.indexOf(position), inputs.length - inputs.indexOf(position));
+        } else {
+            inputs.splice(0, inputs.indexOf(position));
+        }
+
+        return binarySearch(inputs, search);
+    }
+}
+
+export function numberToTotal8Bits(x:number):number {
+    return (x & 0xFF) + ((x & 0xFF00) >> 8) + ((x & 0xFF0000) >> 16) + ((x & 0xFF000000) >> 24)
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const input = 1234;
+        const expect = 214;
+        const numberBinary = new Array(32);
+        numberBinary.fill('0');
+        const binary = (input).toString(2);
+        numberBinary.splice(32 - binary.length, binary.length ,...binary.split(''));
+        let result = 0;
+        for(let i = 0; i < 4; i++) {
+            const byte =  parseInt(numberBinary.splice(0, 8).join(''), 2);
+            result += byte;
+        }
+        console.log('result', result);
+
+
+        // console.log(1234 & 0xFF)
+        // let a = 1234;
+        // function numberToValueBinary(x) {
+        //     return (x & 0xFF) + ((x & 0xFF00) >> 8) + ((x & 0xFF0000) >> 16) + ((x & 0xFF000000) >> 24)
+        // }
+        //console.log(numberToValueBinary(a))
+    </script>
+</body>
+</html>
